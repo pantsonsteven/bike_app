@@ -1,12 +1,12 @@
 ##RESOURCES
 
-### Citibikenyc gem
+#### Citibikenyc gem
 
 - gets realtime data on Citi Bike stations throughout the city
 
 - https://github.com/edgar/citibikenyc
 
-### Geocoder gem
+#### Geocoder gem
 
 - http://www.rubygeocoder.com/
 
