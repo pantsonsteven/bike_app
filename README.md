@@ -19,16 +19,16 @@
 - https://github.com/edgar/citibikenyc
 
 - Get a list of all stations
--- puts Citibikenyc.stations
+-- Citibikenyc.stations
 
 - Get only the current status for all stations
--- puts Citibikenyc.stations_status
+-- Citibikenyc.stations_status
 
 - Get helmets info
--- puts Citibikenyc.helmets
+-- Citibikenyc.helmets
 
 - Get branches info
--- puts Citibikenyc.branches
+-- Citibikenyc.branches
 
 #### Geocoder gem
 
