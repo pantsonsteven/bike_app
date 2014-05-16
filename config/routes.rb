@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  root 'welcome#index'
+  
+  resources :locations do
+  end
 
   resources :users do 
-    resources :trips
-  end
-  
+    resources :trips do 
+    end
+  end  
 end

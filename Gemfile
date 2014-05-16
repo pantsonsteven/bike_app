@@ -49,3 +49,5 @@ end
 gem 'rails_12factor'
 gem 'httparty'
 gem 'font-awesome-rails'
+gem 'faker'
+gem 'geocoder'
