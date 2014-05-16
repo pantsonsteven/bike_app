@@ -10,4 +10,6 @@
 
 ####5/16/14
 * changed database structure; added separate table for locations to jib with Geocoder gem
+* changed db structure back to original, dropped locations table, figured out how to use geocoder methods etc.
+
 
