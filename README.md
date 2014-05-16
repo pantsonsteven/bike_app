@@ -40,13 +40,18 @@
 ##### Useful commands for Geocoder
 
 - look up coordinates of some location (like searching Google Maps)
+
+```ruby
 Geocoder.coordinates("25 Main St, Cooperstown, NY")
  => [42.700149, -74.922767]
+ ```
 
 - distance (in miles) between Eiffel Tower and Empire State Building
+
+```ruby
 Geocoder::Calculations.distance_between([47.858205,2.294359], [40.748433,-73.985655])
  => 3619.77359999382
-
+```
 
 
 

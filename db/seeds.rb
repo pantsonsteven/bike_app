@@ -13,5 +13,5 @@
 # end
 
 10.times do |i|
-  Trip.create(start_station: rand(1..300), end_station: rand(1..300), user_id: rand(1..10), start_location: rand(1..10), end_location: rand(1..10))
+  Trip.create(start_station: rand(1..300), end_station: rand(1..300), user_id: rand(1..10), start_address: '10 E 21st, New York', start_lat: 40.9, start_long: -73.6, end_address: "511 47th ave long island city, ny", end_lat: 40.8, end_long: -73.6)
 end
