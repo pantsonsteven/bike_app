@@ -11,5 +11,6 @@
 ####5/16/14
 * changed database structure; added separate table for locations to jib with Geocoder gem
 * changed db structure back to original, dropped locations table, figured out how to use geocoder methods etc.
-
+* worked on logic for calculating distance between entered address and nearest Citi Bike stations
+* added method "nearest" in trip model
 
