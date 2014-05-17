@@ -1,7 +1,7 @@
 class Trip < ActiveRecord::Base
   belongs_to :user
 
-  def nearest(start_coordinates, end_coordinates)
+  def self.nearest(start_coordinates, end_coordinates)
 
     # this method needs to return two (maybe more?) station objects, the one closest to the start address and the once closest to the end address
 

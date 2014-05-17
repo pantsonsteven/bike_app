@@ -30,7 +30,7 @@ class TripsController < ApplicationController
 
     end_coordinates = Geocoder.coordinates(params.require(:trip).permit(:end_address))
 
-    nearest(start_coordinates, end_coordinates)
+    Trip.nearest(start_coordinates, end_coordinates)
 
     # new_trip = Trip.create(#########)
     redirect_to "/users/:user_id/trips/:id" # is this correct?
@@ -38,3 +38,12 @@ class TripsController < ApplicationController
 
 
 end
+
+
+
+
+
+
+
+
+
