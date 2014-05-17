@@ -1,5 +1,5 @@
 class Trip < ActiveRecord::Base
-  belongs_to :users
+  belongs_to :user
 
   def nearest(start_coordinates, end_coordinates)
 
@@ -41,6 +41,9 @@ class Trip < ActiveRecord::Base
       # insert that into "nearest_stations" array (maybe as start and end??? Would need "nearest_stations" to be an array)
       # nearest would be a "station object"
       # on first iteration of "entered_coordinates", "nearest" would be entered with a ":start" key, second time with an ":end" key
+      # also need to check with "Citibikenyc.stations_status['results']" to ensure that station is active and currently has available bikes
+      # if station is inactive don't display it
+      # if station has no bikes display station and bike count and then "Next Closest Staion" and bike count
 
       if i = 0
         nearest_stations( :start => nearest )

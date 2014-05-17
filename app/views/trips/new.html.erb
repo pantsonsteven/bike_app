@@ -1,11 +1,10 @@
 <h2>Trips#New</h2>
 
-<%= form_for @trip do |f|%>
+<%= form_for [ @user, @trip ] do |f| %>
     <%= f.label :start_address %>
     <%= f.text_field :start_address %>
     <br/>
-    <%= f.label :current_address, "Use current location"%>
-    <%= f.radio_button :current_address %>
+     <%= f.label :current_address, "Use current location"%>
     <br/>
     <%= f.label :end_address %>
     <%= f.text_field :end_address %>
