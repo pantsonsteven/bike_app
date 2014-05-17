@@ -45,9 +45,9 @@ class Trip < ActiveRecord::Base
       # if station is inactive don't display it
       # if station has no bikes display station and bike count and then "Next Closest Staion" and bike count
 
-      if i = 0
+      if i == 0
         nearest_stations( :start => nearest )
-      elsif i = 1
+      elsif i == 1
         nearest_stations( :end => nearest )
       end
 

@@ -18,15 +18,20 @@ class TripsController < ApplicationController
   def create
 
     # "start_coordinates" and "end_coordinates" are arrays of lat and long
+    binding.pry
+    
+    if params[:current_address] == 'false'
 
-    # if (param.require(:trip).permit.(:current_address) == false )
-    #   start_coordinates = Geocoder.coordinates(params.require(:trip).permit(:start_address)) 
-    # else
-    #   # need to get IP address here!!!
-    #   start_coordinates = Geocoder.coordinates(params.require(:trip).permit(:current_address))
-    # end   
 
-    start_coordinates = Geocoder.coordinates(params.require(:trip).permit(:start_address)) 
+
+      start_coordinates = Geocoder.coordinates(params.require(:trip).permit(:start_address)) 
+    else
+      
+      current_address = request.remote_ip
+      start_coordinates = Geocoder.coordinates(params.require(:trip).permit(:current_address))
+    end   
+
+    # start_coordinates = Geocoder.coordinates(params.require(:trip).permit(:start_address)) 
 
     end_coordinates = Geocoder.coordinates(params.require(:trip).permit(:end_address))
 

@@ -1,12 +1,14 @@
 <h2>Trips#New</h2>
 
 <%= form_for [ @user, @trip ] do |f| %>
-    <%= f.label :start_address %>
-    <%= f.text_field :start_address %>
-
-    <!-- Couldn't figure out f.radio_button syntax -->
+      <!-- Couldn't figure out f.radio_button syntax -->
     <%= label_tag(:current_address_true, "Use Current Address") %>
     <%= radio_button_tag(:current_address, true) %>
+    <%= label_tag(:current_address_false, "Don't User Current Address") %>
+    <%= radio_button_tag(:current_address, false) %>
+
+    <%= f.label :start_address %>
+    <%= f.text_field :start_address %>
 
     <%= f.label :end_address %>
     <%= f.text_field :end_address %>

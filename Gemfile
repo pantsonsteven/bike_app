@@ -44,10 +44,14 @@ gem 'citibikenyc'
 group :development, :test do 
   gem 'awesome_print' 
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'faker'
 end
 
 gem 'rails_12factor'
 gem 'httparty'
 gem 'font-awesome-rails'
-gem 'faker'
 gem 'geocoder'
