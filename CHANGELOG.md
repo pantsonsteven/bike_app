@@ -14,3 +14,7 @@
 * worked on logic for calculating distance between entered address and nearest Citi Bike stations
 * added method "nearest" in trip model
 
+####5/17/14
+* add radio button to address form for current location
+* added columns to trips table
+

@@ -3,15 +3,17 @@ class Trip < ActiveRecord::Base
 
   def nearest(start_coordinates, end_coordinates)
 
+    # this method needs to return two (maybe more?) station objects, the one closest to the start address and the once closest to the end address
+
     i = 0
 
     nearest_stations = {}
 
-    entered_adresses = [start_coordinates, end_coordinates]
+    entered_adresses = [start_coordinates, end_coordinates] # need to pull this from params
     
     entered_adresses.each do |entered_coordinates|
 
-      distances = [] # this is an array of station info including distance from entered address, a "station object"
+      distances = [] # this is an array of station objects that included distance from entered address
 
       Citibikenyc.branches["results"].each do |station|
         
@@ -21,20 +23,24 @@ class Trip < ActiveRecord::Base
         
         distance = Geocoder::Calculations.distance_between(entered_coordinates, station_coordinates)
 
+        # this is where the station object is created
         station_info = { 
           :station_id => (station['id']), 
           :label => (station['label']), 
+          :latitude => (station['latitude']),
+          :longitude => (station['longitude']),
           :distance => distance 
         }
 
-        distances << station_info # this enteres station objects with distance into the distnaces array
+        distances << station_info # this enters station objects with distance into the distnaces array
 
       end
 
-      # need to pull out the hash element from distances with the smallest distance value, call it nearest
-      # insert that into nearest_stations array (maybe as start and end??? Would need nearest_stations to be an array)
+      # need code here to pull out the station object from distances with the smallest distance value, call it "nearest" 
+      # (maybe pull out the top five so that if the station has no bikes it can move to the next one in the list...)
+      # insert that into "nearest_stations" array (maybe as start and end??? Would need "nearest_stations" to be an array)
       # nearest would be a "station object"
-      # on first iteration of entered_coordinates, nearest would be entered with a :start key, second time with an :end key
+      # on first iteration of "entered_coordinates", "nearest" would be entered with a ":start" key, second time with an ":end" key
 
       if i = 0
         nearest_stations( :start => nearest )
@@ -45,6 +51,7 @@ class Trip < ActiveRecord::Base
       i += 1
 
     end
+
   end
 
 end
