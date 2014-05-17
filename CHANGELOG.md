@@ -17,4 +17,5 @@
 ####5/17/14
 * add radio button to address form for current location
 * added columns to trips table
+* reformatted new form for trips
 
