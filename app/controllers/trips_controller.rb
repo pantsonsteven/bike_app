@@ -6,9 +6,9 @@ class TripsController < ApplicationController
     @trips = @current_user.trips
   end
 
-  def show
-    @trip = Trip.find(params[:id])
-  end
+  # def show
+  #   @trip = Trip.find(params[:id])
+  # end
 
   def new
     @user = User.find(params[:user_id])
