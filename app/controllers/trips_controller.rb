@@ -19,16 +19,17 @@ class TripsController < ApplicationController
 
     # "start_coordinates" and "end_coordinates" are arrays of lat and long
     
-    if params[:current_address] == 'false'
-      start_coordinates = Geocoder.coordinates(params.require(:trip).permit(:start_address)) 
-    else
+    if params[:current_address] == 'true'
       current_address = request.remote_ip
       start_coordinates = Geocoder.coordinates(current_address)
+    else
+      start_coordinates = Geocoder.coordinates(params.require(:trip).permit(:start_address)) 
     end   
+    binding.pry
 
     end_coordinates = Geocoder.coordinates(params.require(:trip).permit(:end_address))
 
-    nearest_stations = Trip.nearest(start_coordinates, end_coordinates)
+    start_end = Trip.nearest(start_coordinates, end_coordinates)
 
     # new_trip = Trip.create(#########)
     redirect_to "/users/:user_id/trips/:id" # is this correct?

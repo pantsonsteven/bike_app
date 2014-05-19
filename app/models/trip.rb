@@ -15,7 +15,7 @@ class Trip < ActiveRecord::Base
 
       distances = [] # this is an array of station objects that include distance from entered address
 
-      Citibikenyc.branches["results"].each do |station|
+      Citibikenyc.branches["results"].each do |station| #should I load this table in somewhere to limit API hits?
         
         station_coordinates = []
         station_coordinates << (station['latitude'])
@@ -32,22 +32,24 @@ class Trip < ActiveRecord::Base
           :distance => distance 
         }
 
-        distances << station_info # this enters station objects with distance into the distnaces array
+        distances << station_info # this enters station objects with distance into the distances array
 
       end
 
+      # DONE
       # need code here to pull out the station object from distances with the smallest distance value, call it "nearest_station" - DONE
-      # (maybe pull out the top five so that if the station has no bikes it can move to the next one in the list...)
       # insert that into "nearest_stations" array (maybe as start and end??? Would need "nearest_stations" to be a hash) - DONE
       # nearest would be a "station object" - DONE
       # on first iteration of "entered_coordinates", "nearest" would be entered with a ":start" key, second time with an ":end" key - DONE
+      # DONE
+      
+
+      # (maybe pull out the top five so that if the station has no bikes it can move to the next one in the list...)
       # also need to check with "Citibikenyc.stations_status['results']" to ensure that station is active and currently has available bikes
       # if station is inactive don't display it
       # if station has no bikes display station and bike count and then "Next Closest Staion" and bike count
 
       nearest_station = distances.min_by { |station| station[:distance] }
-
-      binding.pry 
 
       if i == 0
         nearest_stations[:start] = nearest_station 
