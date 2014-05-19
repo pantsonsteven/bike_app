@@ -3,8 +3,6 @@ class Trip < ActiveRecord::Base
 
   def self.nearest(start_address, end_address, start_coordinates, end_coordinates)
 
-    # this method needs to return two (maybe more?) station objects, the one closest to the start address and the once closest to the end address
-
     i = 0
 
     bike_stations = {}
@@ -13,12 +11,12 @@ class Trip < ActiveRecord::Base
     
     entered_adresses.each do |entered_coordinates|
 
-      distances = [] # this is an array of station objects that include distance from entered address
+      distances = []
 
       all_stations = Citibikenyc.branches["results"]
       
 
-      all_stations.each do |station| #should I load this table in somewhere to limit API hits?
+      all_stations.each do |station|
 
         station_coordinates = []
         station_coordinates << (station['latitude'])
@@ -35,12 +33,7 @@ class Trip < ActiveRecord::Base
           :distance => distance 
         }
 
-        distances << station_info # this enters station objects with distance into the distances array
-
-        # (maybe pull out the top five so that if the station has no bikes it can move to the next one in the list...)
-        # also need to check with "Citibikenyc.stations_status['results']" to ensure that station is active and currently has available bikes
-        # if station is inactive don't display it
-        # if station has no bikes display station and bike count and then "Next Closest Staion" and bike count
+        distances << station_info 
 
       end
 
@@ -56,7 +49,6 @@ class Trip < ActiveRecord::Base
 
     end
 
-    # all_stations_status = Citibikenyc.stations_status["results"]
 
     trip_hash = {
       :start_station_id => bike_stations[:start][:station_id],
@@ -75,10 +67,8 @@ class Trip < ActiveRecord::Base
       :end_long => end_coordinates[1]
     }
 
-    binding.pry
+    self.create(trip_hash)
 
-    Trip.new(trip_hash)
-    
   end
 
 
