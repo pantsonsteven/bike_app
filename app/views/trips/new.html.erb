@@ -3,6 +3,7 @@
 <%= form_for [ @user, @trip ] do |f| %>
       <!-- Couldn't figure out f.radio_button syntax -->
       <!-- How to set up the raido button so it greys out the start address if "use current location" is checked -->
+      <!-- NEED TO FIX RADIO BUTTON!!!! -->
     <%= label_tag(:current_address_true, "Use Current Location") %> 
     <%= radio_button_tag(:current_address, true) %>
 

@@ -9,13 +9,15 @@ class Trip < ActiveRecord::Base
 
     nearest_stations = {}
 
-    entered_adresses = [start_coordinates, end_coordinates] # need to pull this from controller
+    entered_adresses = [start_coordinates, end_coordinates] 
     
     entered_adresses.each do |entered_coordinates|
 
       distances = [] # this is an array of station objects that include distance from entered address
 
-      Citibikenyc.branches["results"].each do |station| #should I load this table in somewhere to limit API hits?
+      branches = Citibikenyc.branches["results"]
+
+      branches.each do |station| #should I load this table in somewhere to limit API hits?
         
         station_coordinates = []
         station_coordinates << (station['latitude'])
@@ -35,13 +37,6 @@ class Trip < ActiveRecord::Base
         distances << station_info # this enters station objects with distance into the distances array
 
       end
-
-      # DONE
-      # need code here to pull out the station object from distances with the smallest distance value, call it "nearest_station" - DONE
-      # insert that into "nearest_stations" array (maybe as start and end??? Would need "nearest_stations" to be a hash) - DONE
-      # nearest would be a "station object" - DONE
-      # on first iteration of "entered_coordinates", "nearest" would be entered with a ":start" key, second time with an ":end" key - DONE
-      # DONE
       
 
       # (maybe pull out the top five so that if the station has no bikes it can move to the next one in the list...)
