@@ -26,7 +26,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user)
-    redirect_to users_path
+    if @user.save
+      redirect_to users_path
+    else
+      render 'edit'
+    end
   end
 
   def show

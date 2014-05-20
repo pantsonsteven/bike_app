@@ -32,6 +32,10 @@
 
 * got app working on heroku - thawing-atoll-1044.herokuapp.com
 * got IP address location working
+* nearest station results now filter out stations that are inactive or that have 0 bikes
+* address address label using geocoder by reverse geocoding the coordinates
+* got validation working for sign-up
+
 
 
 
