@@ -1,1 +1,23 @@
 <h2>A list of your trips</h2>
+<h3>trips#index</h3>
+
+<ul>
+    <% @trips.each do |trip| %>
+        <li>
+            <h5><%= trip.start_address %> to <%= trip.end_address%></h5>
+        </li>
+        <ul>
+            <li>
+                Date: <%= trip.created_at %>
+            </li>
+            <li>
+                Total Distance: <%= 
+                    (Geocoder::Calculations.distance_between([trip.start_station_latitude, trip.start_station_longitude], [trip.start_lat, trip.start_long]) + 
+                    Geocoder::Calculations.distance_between([trip.start_lat, trip.start_long], [trip.end_lat, trip.end_long]) + 
+                    Geocoder::Calculations.distance_between([trip.end_lat, trip.end_long], [trip.end_station_latitude, trip.end_station_longitude])).round(2)
+                %> miles
+            </li>
+        </ul>
+    <%= link_to "Delete Trip", user_trip_path(:user_id => params[:user_id], :id => trip.id ), method: :delete %>
+    <% end %>
+</ul>

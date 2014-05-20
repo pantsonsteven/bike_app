@@ -3,12 +3,12 @@ class TripsController < ApplicationController
   before_action :authorize, only: [:index]
 
   def index
-
+    @trips = User.find(current_user).trips
   end
 
-  # def show
-  #   @trip = Trip.find(params[:id])
-  # end
+  def show
+    @trip = Trip.find(params[:id])
+  end
 
   def new
     @user = User.find(params[:user_id])
@@ -28,18 +28,20 @@ class TripsController < ApplicationController
     end_address = params.require(:trip).permit(:end_address)['end_address']
     end_coordinates = Geocoder.coordinates(end_address)
 
-
-    trip = Trip.nearest(start_address, end_address, start_coordinates, end_coordinates)
-    binding.pry
-
+    trip = Trip.new_trip(start_address, end_address, start_coordinates, end_coordinates)
+    
     current_user.trips << trip
 
-    redirect_to user_trips_path # is this correct?
+    redirect_to user_trip_path(:id => trip.id)
 
   end
 
+  def destroy
+    Trip.delete(params[:id])
+  end
 
 end
+
 
 
 

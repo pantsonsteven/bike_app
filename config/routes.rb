@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   delete 'sessions' => 'sessions#destroy', as: 'log_out'
 
   get 'profiles' => 'profiles#index'
-
+  get 'profiles/edit' => 'profiles#edit', as: 'edit_profiles'
 
 end

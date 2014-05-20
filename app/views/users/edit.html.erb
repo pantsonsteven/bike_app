@@ -1,0 +1,16 @@
+<h3>Edit Your Profile</h3>
+
+<h2><%= current_user.name %></h2>
+<h3><%= current_user.email %></h3>
+
+ <%= form_for current_user do |f| %>
+     <%= f.label :name %>
+     <%= f. text_field :name %>
+     <%= f.label :email %>
+     <%= f. text_field :email %>
+     <%= f.label :password %>
+     <%= f.password_field :password %>
+     <%= f.label :password_confirmation %>
+     <%= f.password_field :password_confirmation %>
+     <%= f.submit %>
+ <% end %>

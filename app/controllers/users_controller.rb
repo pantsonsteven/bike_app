@@ -14,6 +14,15 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @user = User.find(current_user)
+  end
+
+  def update
+    @user = User.find(params[:id])
+    redirect_to users_path
+  end
+
   private
 
   def user_params

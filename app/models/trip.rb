@@ -1,64 +1,20 @@
 class Trip < ActiveRecord::Base
   belongs_to :user
 
-  def self.nearest(start_address, end_address, start_coordinates, end_coordinates)
+  def self.new_trip(start_address, end_address, start_coordinates, end_coordinates)
 
-    i = 0
-
-    bike_stations = {}
-
-    entered_adresses = [start_coordinates, end_coordinates] 
-    
-    entered_adresses.each do |entered_coordinates|
-
-      distances = []
-
-      all_stations = Citibikenyc.branches["results"]
-      
-
-      all_stations.each do |station|
-
-        station_coordinates = []
-        station_coordinates << (station['latitude'])
-        station_coordinates << (station['longitude'])
-        
-        distance = Geocoder::Calculations.distance_between(entered_coordinates, station_coordinates)
-
-        # this is where the station object is created
-        station_info = { 
-          :station_id => (station['id']), 
-          :label => (station['label']), 
-          :latitude => (station['latitude']),
-          :longitude => (station['longitude']),
-          :distance => distance 
-        }
-
-        distances << station_info 
-
-      end
-
-      nearest_station = distances.min_by { |station| station[:distance] }
-
-      if i == 0
-        bike_stations[:start] = nearest_station 
-      elsif i == 1
-        bike_stations[:end] = nearest_station 
-      end
-
-      i += 1
-
-    end
-
+    start_station = nearest_station(start_coordinates)
+    end_station = nearest_station(end_coordinates)
 
     trip_hash = {
-      :start_station_id => bike_stations[:start][:station_id],
-      :start_station_label => bike_stations[:start][:label],
-      :start_station_latitude => bike_stations[:start][:latitude],
-      :start_station_longitude => bike_stations[:start][:longitude],
-      :end_station_id => bike_stations[:end][:station_id],
-      :end_station_label => bike_stations[:end][:label],
-      :end_station_latitude => bike_stations[:end][:latitude],
-      :end_station_longitude => bike_stations[:end][:longitude],
+      :start_station_id => start_station[:station_id],
+      :start_station_label => start_station[:label],
+      :start_station_latitude => start_station[:latitude],
+      :start_station_longitude => start_station[:longitude],
+      :end_station_id => end_station[:station_id],
+      :end_station_label => end_station[:label],
+      :end_station_latitude => end_station[:latitude],
+      :end_station_longitude => end_station[:longitude],
       :start_address => start_address,
       :start_lat => start_coordinates[0],
       :start_long => start_coordinates[1],
@@ -71,6 +27,42 @@ class Trip < ActiveRecord::Base
 
   end
 
+  def self.nearest_station(coordinates)
+
+   distances = []
+
+   all_stations = Citibikenyc.branches["results"]
+
+   all_stations.each do |station|
+
+    station_coordinates = []
+    station_coordinates << (station['latitude'])
+    station_coordinates << (station['longitude'])
+
+    distance = Geocoder::Calculations.distance_between(coordinates, station_coordinates)
+
+    # this is where the station object is created
+    station_info = { 
+      :station_id => (station['id']), 
+      :label => (station['label']), 
+      :latitude => (station['latitude']),
+      :longitude => (station['longitude']),
+      :distance => distance 
+    }
+
+    distances << station_info
+
+    end
+
+    distances.min_by { |station| station[:distance]}
+
+  end
+
+  def total_distance(coord1, coord2, coord3, coord4)
+    
+    
+    
+  end
 
 end
 
