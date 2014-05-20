@@ -3,10 +3,11 @@
     <p>
         You are currently logged in as <%= current_user.email %>
     </p>
-<p><%= link_to "Log Out", log_out_path, method: :delete %></p>
-<p><%= link_to "Edit Profile", edit_user_path(current_user) %></p>
-<p><%= link_to "Create New Trip", new_user_trip_path(current_user) %></p>
-<p><%= link_to "See Your Past Trips", user_trips_path(current_user) %></p>
+    <p><%= link_to "Log Out", log_out_path, method: :delete %></p>
+    <p><%= link_to "View Your Profile", user_path(current_user) %></p>
+    <p><%= link_to "Edit Profile", edit_user_path(current_user) %></p>
+    <p><%= link_to "Create New Trip", new_user_trip_path(current_user) %></p>
+    <p><%= link_to "See Your Past Trips", user_trips_path(current_user) %></p>
 <% else %>
     <h2>Welcome you</h2>
     <%= link_to "Log In", log_in_path %>

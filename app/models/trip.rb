@@ -1,12 +1,47 @@
 class Trip < ActiveRecord::Base
   belongs_to :user
 
-  def self.new_trip(start_address, end_address, start_coordinates, end_coordinates)
+  def self.new_trip(start_address, end_address)
+    start_coordinates = address_coordinates(start_address)
+    end_coordinates = address_coordinates(end_address)
 
     start_station = nearest_station(start_coordinates)
     end_station = nearest_station(end_coordinates)
 
-    trip_hash = {
+    trip = trip_hash(start_station, end_station, start_address, end_address)
+
+    self.create(trip)
+  end
+
+  def self.address_coordinates(address)
+    Geocoder.coordinates(address)
+  end
+
+  def self.nearest_station(address_coordinates)
+    all_stations = Citibikenyc.branches["results"]
+
+    station_array = []
+
+    all_stations.each do |station|
+
+      distance = Geocoder::Calculations.distance_between(address_coordinates, [(station['latitude']),(station['longitude'])])
+
+      station_info = { 
+        :station_id => (station['id']), 
+        :label => (station['label']), 
+        :latitude => (station['latitude']),
+        :longitude => (station['longitude']),
+        :distance => distance 
+      }
+
+      station_array << station_info
+    end
+
+    station_array.min_by { |station| station[:distance]}
+  end
+
+  def self.trip_hash(start_station, end_station, start_address, end_address)
+    {
       :start_station_id => start_station[:station_id],
       :start_station_label => start_station[:label],
       :start_station_latitude => start_station[:latitude],
@@ -22,47 +57,11 @@ class Trip < ActiveRecord::Base
       :end_lat => end_coordinates[0],
       :end_long => end_coordinates[1]
     }
-
-    self.create(trip_hash)
-
   end
 
-  def self.nearest_station(coordinates)
+  # def self.save
 
-   distances = []
-
-   all_stations = Citibikenyc.branches["results"]
-
-   all_stations.each do |station|
-
-    station_coordinates = []
-    station_coordinates << (station['latitude'])
-    station_coordinates << (station['longitude'])
-
-    distance = Geocoder::Calculations.distance_between(coordinates, station_coordinates)
-
-    # this is where the station object is created
-    station_info = { 
-      :station_id => (station['id']), 
-      :label => (station['label']), 
-      :latitude => (station['latitude']),
-      :longitude => (station['longitude']),
-      :distance => distance 
-    }
-
-    distances << station_info
-
-    end
-
-    distances.min_by { |station| station[:distance]}
-
-  end
-
-  def total_distance(coord1, coord2, coord3, coord4)
-    
-    
-    
-  end
+  # end
 
 end
 

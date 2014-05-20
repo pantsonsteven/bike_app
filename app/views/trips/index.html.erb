@@ -18,6 +18,8 @@
                 %> miles
             </li>
         </ul>
-    <%= link_to "Delete Trip", user_trip_path(:user_id => params[:user_id], :id => trip.id ), method: :delete %>
+    <%= link_to "Delete Trip", user_trips_path( :id => trip.id ), method: :delete %>
     <% end %>
 </ul>
+
+<%= link_to "Back", root_path %>

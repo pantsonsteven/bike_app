@@ -26,3 +26,15 @@
 * added user and authorization functionality
 * got trip form working so that new trips can be created
 * worked on trips#show and trips#index pages
+* got user authorization working
+
+####5/20/14
+
+* got app working on heroku - thawing-atoll-1044.herokuapp.com
+* got IP address location working
+
+
+
+
+
+

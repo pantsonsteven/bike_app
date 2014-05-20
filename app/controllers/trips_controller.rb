@@ -19,16 +19,13 @@ class TripsController < ApplicationController
 
     if params[:current_address] == 'true'
       start_address = request.remote_ip
-      start_coordinates = Geocoder.coordinates(start_address)
     else
       start_address = params.require(:trip).permit(:start_address)['start_address']
-      start_coordinates = Geocoder.coordinates(start_address) 
     end   
 
     end_address = params.require(:trip).permit(:end_address)['end_address']
-    end_coordinates = Geocoder.coordinates(end_address)
 
-    trip = Trip.new_trip(start_address, end_address, start_coordinates, end_coordinates)
+    trip = Trip.new_trip(start_address, end_address)
     
     current_user.trips << trip
 
