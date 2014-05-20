@@ -1,9 +1,9 @@
 <h3>Edit Your Profile</h3>
 
-<h2><%= current_user.name %></h2>
-<h3><%= current_user.email %></h3>
+<h2><%= @user.name %></h2>
+<h3><%= @user.email %></h3>
 
- <%= form_for current_user do |f| %>
+ <%= form_for @user do |f| %>
      <%= f.label :name %>
      <%= f. text_field :name %>
      <%= f.label :email %>
