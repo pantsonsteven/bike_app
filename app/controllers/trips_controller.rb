@@ -1,19 +1,23 @@
 class TripsController < ApplicationController
 
-  before_action :authorize, only: [:index]
-
   def index
     @trips = User.find(current_user).trips
   end
+
+
 
   def show
     @trip = Trip.find(params[:id])
   end
 
+
+
   def new
     @user = User.find(params[:user_id])
     @trip = Trip.new(:user => @user)
   end
+
+
 
   def create
 
@@ -30,11 +34,13 @@ class TripsController < ApplicationController
     current_user.trips << trip
 
     redirect_to user_trip_path(:id => trip.id)
-
   end
+
+
 
   def destroy
     Trip.delete(params[:id])
+    redirect_to user_trips_path
   end
 
 end

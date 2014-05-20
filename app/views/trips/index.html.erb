@@ -4,22 +4,32 @@
 <ul>
     <% @trips.each do |trip| %>
         <li>
-            <h5><%= trip.start_address %> to <%= trip.end_address%></h5>
+            <h4><%= trip.start_address %></h4> to <h4><%= trip.end_address%></h4>
         </li>
         <ul>
             <li>
-                Date: <%= trip.created_at %>
+                Date: <%= trip.created_at.strftime("%-m/%-d/%Y") %>
             </li>
             <li>
-                Total Distance: <%= 
-                    (Geocoder::Calculations.distance_between([trip.start_station_latitude, trip.start_station_longitude], [trip.start_lat, trip.start_long]) + 
-                    Geocoder::Calculations.distance_between([trip.start_lat, trip.start_long], [trip.end_lat, trip.end_long]) + 
-                    Geocoder::Calculations.distance_between([trip.end_lat, trip.end_long], [trip.end_station_latitude, trip.end_station_longitude])).round(2)
-                %> miles
+                Start Address: <%= trip.start_address_label %>
+            </li>
+            <li>
+                Start Station: <%= trip.start_station_label %>
+            </li>
+            <li>
+                End Address: <%= trip.end_address_label %>
+            </li>
+            <li>
+                End Station: <%= trip.end_station_label %>
+            </li>
+            <li>
+                Total Distance: <%= trip.total_distance %> miles
             </li>
         </ul>
-    <%= link_to "Delete Trip", user_trips_path( :id => trip.id ), method: :delete %>
+    <%= link_to "Trip Details", user_trip_path(:id => trip.id), class: 'button' %>
+    <%= link_to "Delete Trip", user_trip_path(current_user, trip), method: :delete, class: 'button' %>
     <% end %>
 </ul>
 
-<%= link_to "Back", root_path %>
+<%= link_to "Back", root_path, class: 'button' %>
+<%= link_to "Create New Trip", new_user_trip_path, class: 'button' %>

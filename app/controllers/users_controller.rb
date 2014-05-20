@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  # before_action :authorize, only: [:index] # huh??
+  before_action :authorize, only: [:edit, :update, :show] # huh??
 
   def index
     @user = current_user
@@ -12,8 +12,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(user_params)
-    redirect_to root_path
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to log_in_path
+    else
+      render 'new'
+    end
   end
 
   def edit

@@ -1,4 +1,5 @@
 <h3>Edit Your Profile</h3>
+<h4>users#edit</h4>
 
 <% if @user.errors.any? %>
   <div class="errors">
@@ -27,7 +28,7 @@
     <%= f.submit %>
 <% end %>
 
-<%= link_to "Cancel", user_path(current_user)%>
+<%= link_to "Cancel", user_path, class: 'button'%>
 
 
 

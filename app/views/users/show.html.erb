@@ -1,3 +1,5 @@
+<h3>users#show</h3>
+
 <h2><%= current_user.name %></h2>
 <h3><%= current_user.email %></h3>
 
@@ -16,7 +18,7 @@
     
 </ul>
 
-<%= link_to "Edit Account Details", edit_user_path(current_user) %>
+<%= link_to "Edit Account Details", edit_user_path, class: 'button' %>
 
 
-<%= link_to "Back", root_path %>
+<%= link_to "Back", root_path, class: 'button' %>
