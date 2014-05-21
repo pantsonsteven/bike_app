@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize, only: [:edit, :update, :show] # huh??
 
   def index
+    
     @user = current_user
     @users = User.all
   end
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user)
-    if @user.save
+    if @user.update_attributes(user_params)
       redirect_to users_path
     else
       render 'edit'

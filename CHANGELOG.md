@@ -36,7 +36,10 @@
 * address address label using geocoder by reverse geocoding the coordinates
 * got validation working for sign-up
 
+####5/21/14
 
+* got validation working on update
+*
 
 
 
