@@ -40,6 +40,7 @@
 
 * got validation working on update
 * added google map static image with drop points for stations and addresses and simple travel path
+* removed stations table from database
 
 
 

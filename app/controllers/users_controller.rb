@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(current_user)
     if @user.update_attributes(user_params)
-      redirect_to users_path
+      redirect_to new_user_trip_path(current_user)
     else
       render 'edit'
     end

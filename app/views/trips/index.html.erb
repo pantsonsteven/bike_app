@@ -31,5 +31,4 @@
     <% end %>
 </ul>
 
-<%= link_to "Back", root_path, class: 'button' %>
-<%= link_to "Create New Trip", new_user_trip_path, class: 'button' %>
+<%= link_to "Back", new_user_trip_path(current_user), class: 'button' %>

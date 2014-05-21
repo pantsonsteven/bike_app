@@ -1,19 +1,28 @@
-<h2>Trips#New</h2>
+<div class="welcome sixteen columns">
+   <h2>Welcome <%= current_user.name %></h2>
+   <p>You are currently logged in as <%= current_user.email %></p>
 
-<%= form_for [ @user, @trip ] do |f| %>
+   <h2>Trips#New</h2>
 
-      <!-- How to set up the raido button so it greys out the start address if "use current location" is checked -->
+   <%= form_for [ @user, @trip ] do |f| %>
+       <%= label_tag(:current_address_true, "Use Current Location") %> 
+       <%= radio_button_tag(:current_address, true) %>
+       <%= f.label :start_address %>
+       <%= f.text_field :start_address %>
+       <%= f.label :end_address %>
+       <%= f.text_field :end_address %>
+       <%= f.submit %> 
+   <% end %>
 
-    <%= label_tag(:current_address_true, "Use Current Location") %> 
-    <%= radio_button_tag(:current_address, true) %>
 
-    <%= f.label :start_address %>
-    <%= f.text_field :start_address %>
+   
+   <p><%= link_to "Log Out", log_out_path, method: :delete, class: 'button' %></p>
+   <p><%= link_to "View Your Profile", edit_user_path(current_user), class: 'button' %></p>
+   <p><%= link_to "See Your Past Trips", user_trips_path(current_user), class: 'button' %></p>
 
-    <%= f.label :end_address %>
-    <%= f.text_field :end_address %>
- 
-    <%= f.submit %> 
-<% end %>
 
-<%= link_to "Cancel", root_path, class: 'button' %>
+
+
+
+
+</div>

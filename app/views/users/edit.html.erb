@@ -19,8 +19,7 @@
     <%= f. text_field :name %>
     <%= f.label :email %>
     <%= f. text_field :email %>
-    <%= f.label :email_confirmation %>
-    <%= f.text_field :email_confirmation %>
+
     <%= f.label :password %>
     <%= f.password_field :password %>
     <%= f.label :password_confirmation %>
@@ -28,7 +27,7 @@
     <%= f.submit %>
 <% end %>
 
-<%= link_to "Cancel", user_path, class: 'button'%>
+<%= link_to "Cancel", new_user_trip_path(current_user), class: 'button'%>
 
 
 

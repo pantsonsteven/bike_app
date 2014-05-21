@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: "Signed In as #{user.email}"
+      redirect_to new_user_trip_path(:user_id => user.id), notice: "Signed In as #{user.email}"
     else
       redirect_to log_in_path, alert: "Log In Failed"
     end
