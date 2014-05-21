@@ -26,5 +26,23 @@
     </ul>    
 </ul>
 
+<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x600&maptype=roadmap&path=color:blue%7Cweight:5%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&path=color:red%7Cweight:5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&path=color:blue%7Cweight:5%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&markers=color:blue%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>&markers=color:red%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&markers=color:red%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&markers=color:blue%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&sensor=false" >
+
+
+
 <%= link_to "Home", users_path, class: 'button' %>
 <%= link_to "Your Trips", user_trips_path, class: 'button' %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
