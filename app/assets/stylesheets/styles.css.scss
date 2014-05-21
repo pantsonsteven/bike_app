@@ -1,15 +1,74 @@
-/*.white_block {
-   height: 100px;
-   background-color: rgba(255, 255, 255, 1);
-   margin: 65% 0 0 0;
+/* ---------- HOME PAGE STYLING ---------- */
+
+.header h1 {
+   text-align: center;
+   font-family: 'Amaranth', sans-serif;
+   color: #2C43C7;
+   font-size: 125px;
+   line-height: 200px;
+   margin-bottom: -20px;
 }
 
-.welcome {
-   background-color: rgba(255, 255, 255, 0.5);
-   height: 100px;
-   margin: 65% 0 0 0;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
-}*/
+
+.form input {
+   font-family: 'Muli', sans-serif;
+   font-size: 50px;
+   width: 100%;
+   text-align: center;
+   border: none;
+   margin-top: -10px;
+}
+
+.form .button {
+   font-family: 'Muli', sans-serif;
+   font-size: 12px;
+   text-align: center;
+   background: white;
+   color: #2C43C7;
+   border: none;
+   width: 25%;
+   margin: 0 auto;
+   display: block;
+   text-shadow: none;
+   transition-property: background, color;
+   transition-duration: 100ms;
+   transition-timing-function: linear;
+}
+
+.form .button:hover {
+  background: #2C43C7;
+  color: white;
+}
+
+form.new_user input[type="submit"] {
+   background: white;
+   color: #2C43C7;
+   border: none;
+   width: 50%;
+   margin: 0 auto;
+   display: block;
+   text-shadow: none;
+   transition-property: background, color;
+   transition-duration: 100ms;
+   transition-timing-function: linear;
+}  
+
+form.new_user input[type="submit"]:hover {
+   background: #2C43C7;
+   color: white;
+}
+
+/* ---------- END OF HOME PAGE STYLING ---------- */
+
+
+h2 {
+   font-family: 'Amaranth', sans-serif;
+   color: #2C43C7;
+}
+
+
+
+
+
+
+
