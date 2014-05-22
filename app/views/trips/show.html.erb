@@ -10,11 +10,11 @@
                 Total Distance: <%= @trip.total_distance %> miles
             </li>
             <li>
-                Nearest Citi Bike Station: <%= @trip.start_station_label%>
+                Nearest Citi Bike Station to Origin: <%= @trip.start_station_label%>
             </li>
 
             <li>
-                Nearest Citi Bike Station: <%= @trip.end_station_label %>
+                Nearest Citi Bike Station to Destination: <%= @trip.end_station_label %>
             </li>    
         </ul>
         <%= link_to "Create Another Trip", new_user_trip_path, class: 'button' %>
