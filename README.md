@@ -10,7 +10,41 @@ peddlr helps you answer these questions and allows you to plan you trips around 
 
 #Screenshot
 
-(https://dl.dropboxusercontent.com/u/1361162/Screen%20Shot%202014-05-22%20at%209.12.07%20AMEDT.jpg)
+![screenshot](https://dl.dropboxusercontent.com/u/1361162/Screen%20Shot%202014-05-22%20at%209.12.07%20AMEDT.jpg)
+
+#Code Sample
+
+```ruby
+
+def self.nearest_station(address_coordinates)
+  all_stations = Citibikenyc.branches["results"]
+  station_array = []
+
+  all_stations.each do |station|
+
+    distance_from_address = Geocoder::Calculations.distance_between(address_coordinates, [(station['latitude']),(station['longitude'])])
+
+    station_info = { 
+      :station_id => (station['id']), 
+      :label => (station['label']), 
+      :latitude => (station['latitude']),
+      :longitude => (station['longitude']),
+      :distance => distance_from_address 
+    }
+
+    station_array << station_info
+  end
+
+  sorted = station_array.sort{ |x, y| x[:distance] <=> y[:distance] }
+
+  sorted.each do |station|
+    return station if station_state(station[:station_id]).fetch("status", "not active") == "Active" &&  station_state(station[:station_id]).fetch("availableBikes", 0).to_i > 0
+  end
+
+end
+
+
+```
 
 ###RESOURCES
 
