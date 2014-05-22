@@ -1,40 +1,33 @@
-<h2>Here are your trip details</h2>
-<h3>Trips#Show</h3>
+<div class="sixteen columns">
+    <h2>Here are your trip details</h2>
 
-<ul>
-    <li>
-        <h5><%= @trip.start_address %> to <%= @trip.end_address%></h5>
-    </li>
-    <li>
-        Total Distance: <%= @trip.total_distance %> miles
-    </li>
-    <li>
-        Start Location: <%= @trip.start_address_label %>
-    </li>
-    <ul>
-        <li>
-            Nearest Citi Bike Station: <%= @trip.start_station_label%>
-        </li>
-    </ul>
-    <li>
-        End Location: <%= @trip.end_address_label %>
-    </li>
-    <ul>
-        <li>
-            Nearest Citi Bike Station: <%= @trip.end_station_label %>
-        </li>
-    </ul>    
-</ul>
+    <div class="eight columns">
+        <ul>
+            <li>
+                <h4><%= @trip.start_address_label %> <br/><h5>to</h4><br/> <h4><%= @trip.end_address_label %></h4>
+            </li>
+            <li>
+                Total Distance: <%= @trip.total_distance %> miles
+            </li>
+            <li>
+                Nearest Citi Bike Station: <%= @trip.start_station_label%>
+            </li>
 
-<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x600&maptype=roadmap&path=color:blue%7Cweight:5%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&path=color:red%7Cweight:5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&path=color:blue%7Cweight:5%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&markers=color:blue%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>&markers=color:red%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&markers=color:red%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&markers=color:blue%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&sensor=false" >
+            <li>
+                Nearest Citi Bike Station: <%= @trip.end_station_label %>
+            </li>    
+        </ul>
+        <%= link_to "Create Another Trip", new_user_trip_path, class: 'button' %>
+        <%= link_to "Your Trips", user_trips_path, class: 'button' %>
+    </div>
+
+    <img src="http://maps.googleapis.com/maps/api/staticmap?size=400x600&maptype=roadmap&path=color:blue%7Cweight:5%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&path=color:red%7Cweight:5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&path=color:blue%7Cweight:5%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&markers=color:blue%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>&markers=color:red%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&markers=color:red%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&markers=color:blue%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&sensor=false" >
 
 
 
-<%= link_to "Home", new_user_trip_path, class: 'button' %>
-<%= link_to "Your Trips", user_trips_path, class: 'button' %>
 
 
-
+</div>
 
 
 

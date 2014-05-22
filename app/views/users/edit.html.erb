@@ -1,11 +1,10 @@
 <h3>Edit Your Profile</h3>
-<h4>users#edit</h4>
 
 <% if @user.errors.any? %>
   <div class="errors">
-    <p class="error-count">
+    <h5 class="error-count">
       The form has <%= pluralize(@user.errors.count, "error") %>.
-    </p>
+    </h5>
     <ul class= "error-list">
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
