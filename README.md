@@ -6,11 +6,15 @@ peddlr helps you plan your Citi Bike trips around New York City.
 
 Citi Bike is a system of publically available bikes placed at stations throughout New York City. But planning a trip using Citi Bike can be complicated. Where is the closest station? Is it active? Does it have any bikes availabe?
 
-peddlr helps you answer these questions and allows you to plan you trips around the city. Users can plan a trip by entering origin and destination addresses. peddlr then looks up the nearest Citi Bike station with available bikes and provides you with a map to the station. peddlr also directs you to the Citi Bike station nearest your destination. In addition, peddlr allows you to look at past trips you've planned because for some reason you would want to do that. Have bad memories attached to a particular trip? Simply delete it and never think about it again. peddlr allows you to avoid the bad feelings that are sometimes connected to riding bikes in New York city.
+peddlr helps you answer these questions and allows you to plan you trips around the city. Users plan a trip by entering origin and destination addresses then peddlr  looks up the nearest Citi Bike station with available bikes and provides usres with a map to the station. peddlr also directs you to the Citi Bike station nearest your destination. In addition, peddlr allows you to look at past trips you've gone on.
 
-#Screenshot
+Take the confusion out of Citi Bike. User peddlr.
+
+#Screenshots
 
 ![screenshot](https://dl.dropboxusercontent.com/u/1361162/Screen%20Shot%202014-05-22%20at%209.12.07%20AMEDT.jpg)
+
+![screenshot](https://dl.dropboxusercontent.com/u/1361162/Screen%20Shot%202014-05-22%20at%204.21.09%20PMEDT.jpg)
 
 #Code Sample
 
