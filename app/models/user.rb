@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   validates :password, length: {within: 8..14, too_short: "is too short, it needs to be between 8 and 14 characters", too_long: "is too long, it needs to be between 8 and 14 characters"}  
 
 end
-
+ 
 
 
