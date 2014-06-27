@@ -2,28 +2,28 @@
 
 
 <ol>
-    <% @trips.each do |trip| %>
+  <% @trips.each do |trip| %>
     <li>
-        <h3><%= trip.start_address_label %></h3> to <h3><%= trip.end_address_label %></h3>
-        
+      <h3><%= trip.start_address_label %></h3> to <h3><%= trip.end_address_label %></h3>
+
     </li>
     <ul>
-        <li>
-            <h4><%= trip.created_at.strftime("%-m/%-d/%Y") %></h4>
-        </li>
-        <ul>
+      <li>
+        <h4><%= trip.created_at.strftime("%-m/%-d/%Y") %></h4>
+      </li>
+      <ul>
 
-            <li>
-                End Station: <%= trip.end_station_label %>
-            </li>
-            <li>
-                Total Distance: <%= trip.total_distance %> miles
-            </li>
-        </ul>
-        <%= link_to "Trip Details", user_trip_path(:id => trip.id), class: 'button' %>
-        <%= link_to "Delete Trip", user_trip_path(current_user, trip), method: :delete, class: 'button' %>
+        <li>
+          End Station: <%= trip.end_station_label %>
+        </li>
+        <li>
+          Total Distance: <%= trip.total_distance %> miles
+        </li>
+      </ul>
+      <%= link_to "Trip Details", user_trip_path(:id => trip.id), class: 'button' %>
+      <%= link_to "Delete Trip", user_trip_path(current_user, trip), method: :delete, class: 'button' %>
     </ul>
-    <% end %>
+  <% end %>
 </ol>
 
 <%= link_to "Create Another Trip", new_user_trip_path(current_user), class: 'button' %>

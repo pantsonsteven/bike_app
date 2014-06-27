@@ -1,19 +1,15 @@
-
 <div class="offset-by-twelve four columns">
-    <h2>Log In</h2>
+  <h2>Log In</h2>
 
-    <%= form_tag sessions_path do %>
-        <%= label_tag :email %>
-        <%= text_field_tag :email %>
-        <%= label_tag :password %>
-        <%= password_field_tag :password %>
-        <%= submit_tag "Log In" %>
-    <% end %>
+  <%= form_tag sessions_path do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Log In" %>
+  <% end %>
 
-    <%= link_to "Home", root_path, class: 'button' %>
-    <%= link_to "Create An Account", new_user_path, class: 'button' %>
-
-
-
+  <%= link_to "Home", root_path, class: 'button' %>
+  <%= link_to "Create An Account", new_user_path, class: 'button' %>
 
 </div>

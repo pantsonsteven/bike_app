@@ -1,30 +1,30 @@
 <div class="welcome eight columns">
-   <h2>Welcome <%= current_user.name %></h2>
-   <h4>You are currently logged in as <%= current_user.email %></h4>
+  <h2>Welcome <%= current_user.name %></h2>
+  <h4>You are currently logged in as <%= current_user.email %></h4>
 
 
 
-   <%= form_for [ @user, @trip ] do |f| %>
-       <%= label_tag(:current_address_true, "Use Current Location") %> 
-       <%= radio_button_tag(:current_address, true) %>
-       <%= f.label :start_address %>
-       <%= f.text_field :start_address %>
-       <%= f.label :end_address %>
-       <%= f.text_field :end_address %>
-       <%= f.submit %> 
-   <% end %>
+  <%= form_for [ @user, @trip ] do |f| %>
+    <%= label_tag(:current_address_true, "Use Current Location") %>
+    <%= radio_button_tag(:current_address, true) %>
+    <%= f.label :start_address %>
+    <%= f.text_field :start_address %>
+    <%= f.label :end_address %>
+    <%= f.text_field :end_address %>
+    <%= f.submit %>
+  <% end %>
 
 
-   
-   <p><%= link_to "Log Out", log_out_path, method: :delete, class: 'button' %></p>
-   <p><%= link_to "View Your Profile", edit_user_path(current_user), class: 'button' %></p>
-   <p><%= link_to "See Your Past Trips", user_trips_path(current_user), class: 'button' %></p>
+
+  <p><%= link_to "Log Out", log_out_path, method: :delete, class: 'button' %></p>
+  <p><%= link_to "View Your Profile", edit_user_path(current_user), class: 'button' %></p>
+  <p><%= link_to "See Your Past Trips", user_trips_path(current_user), class: 'button' %></p>
 
 </div>
 
 <div class="eight columns">
-  
-  
+
+
 
 
 

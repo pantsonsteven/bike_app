@@ -1,41 +1,31 @@
 <div class="sixteen columns">
-    <h2>Here are your trip details</h2>
+  <h2>Here are your trip details</h2>
 
-    <div class="eight columns">
-        <ul>
-            <li>
-                <h4><%= @trip.start_address_label %> <br/><h5>to</h4><br/> <h4><%= @trip.end_address_label %></h4>
-            </li>
-            <li>
-                Total Distance: <%= @trip.total_distance %> miles
-            </li>
-            <li>
-                Nearest Citi Bike Station to Origin: <%= @trip.start_station_label%>
-            </li>
+  <div class="eight columns">
+    <ul>
+      <li>
+        <h4><%= @trip.start_address_label %> <br/><h5>to</h4><br/> <h4><%= @trip.end_address_label %></h4>
+      </li>
+      <li>
+        Total Distance: <%= @trip.total_distance %> miles
+      </li>
+      <li>
+        Nearest Citi Bike Station to Origin: <%= @trip.start_station_label%>
+      </li>
 
-            <li>
-                Nearest Citi Bike Station to Destination: <%= @trip.end_station_label %>
-            </li>    
-        </ul>
-        <%= link_to "Create Another Trip", new_user_trip_path, class: 'button' %>
-        <%= link_to "Your Trips", user_trips_path, class: 'button' %>
-    </div>
+      <li>
+        Nearest Citi Bike Station to Destination: <%= @trip.end_station_label %>
+      </li>
+    </ul>
+    <%= link_to "Create Another Trip", new_user_trip_path, class: 'button' %>
+    <%= link_to "Your Trips", user_trips_path, class: 'button' %>
+  </div>
 
-    <img src="http://maps.googleapis.com/maps/api/staticmap?size=400x600&maptype=roadmap&path=color:blue%7Cweight:5%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&path=color:red%7Cweight:5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&path=color:blue%7Cweight:5%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&markers=color:blue%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>&markers=color:red%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&markers=color:red%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&markers=color:blue%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&sensor=false" >
+  <!-- That looks scary and it should probably be in app/helpers/trip_helper.rb -->
+  <img src="http://maps.googleapis.com/maps/api/staticmap?size=400x600&maptype=roadmap&path=color:blue%7Cweight:5%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&path=color:red%7Cweight:5%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&path=color:blue%7Cweight:5%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&markers=color:blue%7C<%= @trip.start_lat.round(6) %>,<%= @trip.start_long.round(6) %>&markers=color:red%7C<%= @trip.start_station_latitude.round(6) %>,<%= @trip.start_station_longitude.round(6) %>&markers=color:red%7C<%= @trip.end_station_latitude.round(6) %>,<%= @trip.end_station_longitude.round(6) %>&markers=color:blue%7C<%= @trip.end_lat.round(6) %>,<%= @trip.end_long.round(6) %>&sensor=false" >
 
 
 
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
